@@ -1,4 +1,4 @@
-// redondear decimales
+// poder concatenar operaciones en pantalla de una sola vez ej: 5+5+5
 const displayText=document.querySelector('#text')
 displayText.textContent = '';
 
@@ -16,10 +16,7 @@ let first=''
 let second=''
 let resultado=''
 let punto=false
-let contiene
 let resultadoMostrado=false
-
-
 
 clear.addEventListener('click', () => {
     displayText.textContent = '';
@@ -42,43 +39,59 @@ add.addEventListener('click', ()=> {
     displayText.textContent+='+';
     operation=suma;
     sign='+'
+    punto=false
     
 } )
 sub.addEventListener('click', ()=> {
-    if (resultado==''){
-        first=parseFloat(num1);}
-        else{first=resultado}
+    if (resultado=='0'){
+        first=resultado
+    }
+    else if(resultado==''){
+    first=parseFloat(num1);}
+    else{first=resultado}
     displayText.textContent+='-';
     operation=resta;
     sign='-'
+    punto=false
 } )
 
 mul.addEventListener('click', ()=> {
-    if (resultado==''){
-        first=parseFloat(num1);}
-        else{first=resultado}
-    displayText.textContent+='x';
+    if (resultado=='0'){
+        first=resultado
+    }
+    else if(resultado==''){
+    first=parseFloat(num1);}
+    else{first=resultado}
+    displayText.textContent+='x';       
     operation=multiplica;
     sign='x'
+    punto=false
 } )
 
 div.addEventListener('click', ()=> {
-    if (resultado==''){
-        first=parseFloat(num1);}
-        else{first=resultado}
-    displayText.textContent+='÷';
+    if (resultado=='0'){
+        first=resultado
+    }
+    else if(resultado==''){
+    first=parseFloat(num1);}
+    else{first=resultado}
+    displayText.textContent+='÷';       
     operation=divide;
     sign='÷'
+    punto=false
 } )
 
 equal.addEventListener('click', ()=>{
     operator(operation,sign,first,second)
     resultadoMostrado = true;
     sign=''
+    punto=false
 })
 
 dot.addEventListener('click', ()=>{
+    if(!punto){
     displayText.textContent+='.'
+    punto=true}
 })
 
 for (let i = 0; i <= 9; i++) {
