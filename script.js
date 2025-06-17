@@ -1,4 +1,4 @@
-// 6x0=0 + 7 da 13 por alguna razon
+// redondear decimales
 const displayText=document.querySelector('#text')
 displayText.textContent = '';
 
@@ -16,6 +16,10 @@ let first=''
 let second=''
 let resultado=''
 let punto=false
+let contiene
+let resultadoMostrado=false
+
+
 
 clear.addEventListener('click', () => {
     displayText.textContent = '';
@@ -29,12 +33,16 @@ backspace.addEventListener('click', ()=>{
 })
 
 add.addEventListener('click', ()=> {
-    if (resultado==''){
+    if (resultado=='0'){
+        first=resultado
+    }
+    else if(resultado==''){
     first=parseFloat(num1);}
     else{first=resultado}
     displayText.textContent+='+';
     operation=suma;
     sign='+'
+    
 } )
 sub.addEventListener('click', ()=> {
     if (resultado==''){
@@ -65,6 +73,7 @@ div.addEventListener('click', ()=> {
 
 equal.addEventListener('click', ()=>{
     operator(operation,sign,first,second)
+    resultadoMostrado = true;
     sign=''
 })
 
@@ -75,10 +84,11 @@ dot.addEventListener('click', ()=>{
 for (let i = 0; i <= 9; i++) {
     const btn = document.querySelector(`#btn${i}`);
     btn.addEventListener('click', () => {
-        if(resultado!=''){
+        if(resultadoMostrado && sign===''){
             displayText.textContent=''
             resultado=''
         }
+        resultadoMostrado = false;
         num1=displayText.textContent += i;   
     });
 }
