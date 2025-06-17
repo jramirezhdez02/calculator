@@ -75,6 +75,10 @@ dot.addEventListener('click', ()=>{
 for (let i = 0; i <= 9; i++) {
     const btn = document.querySelector(`#btn${i}`);
     btn.addEventListener('click', () => {
+        if(resultado!=''){
+            displayText.textContent=''
+            resultado=''
+        }
         num1=displayText.textContent += i;   
     });
 }
