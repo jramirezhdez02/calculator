@@ -20,11 +20,12 @@ let punto=false
 clear.addEventListener('click', () => {
     displayText.textContent = '';
     resultado='';
-
 });
 
 backspace.addEventListener('click', ()=>{
-    displayText.textContent= displayText.textContent.slice(0,displayText.textContent.length-1)
+    num1=displayText.textContent= displayText.textContent.slice(0,displayText.textContent.length-1)
+    resultado=''
+    
 })
 
 add.addEventListener('click', ()=> {
