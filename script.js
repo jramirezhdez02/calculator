@@ -27,9 +27,9 @@ clear.addEventListener('click', () => {
 });
 
 backspace.addEventListener('click', ()=>{
-    num1=displayText.textContent= displayText.textContent.slice(0,displayText.textContent.length-1)
+    num1=displayText.textContent= displayText.textContent.slice(0,-1)
     resultado=''
-    
+    resultadoMostrado = false;
 })
 
 add.addEventListener('click', ()=> {
@@ -110,7 +110,12 @@ function divide(op1,op2){
         alert('La division entre cero no esta definida master')
     }
     else{
-    return res=op1/op2}
+    res=op1/op2
+    if (toString(res).length>8){
+        res=Number(res.toFixed(8))
+    }
+    return res
+}
 }
 function operator(operation,sign,first,second){
     let posicion = displayText.textContent.indexOf(sign);
