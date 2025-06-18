@@ -17,10 +17,12 @@ let second=''
 let resultado=''
 let punto=false
 let resultadoMostrado=false
+let sign=''
 
 clear.addEventListener('click', () => {
     displayText.textContent = '';
     resultado='';
+    sign=''
 });
 
 backspace.addEventListener('click', ()=>{
@@ -30,6 +32,12 @@ backspace.addEventListener('click', ()=>{
 })
 
 add.addEventListener('click', ()=> {
+    if(sign!=''){
+        operator(operation,sign,first,second)
+        resultadoMostrado = true;
+        sign=''
+        punto=false
+    }
     if (resultado=='0'){
         first=resultado
     }
@@ -43,6 +51,12 @@ add.addEventListener('click', ()=> {
     
 } )
 sub.addEventListener('click', ()=> {
+    if(sign!=''){
+        operator(operation,sign,first,second)
+        resultadoMostrado = true;
+        sign=''
+        punto=false
+    }
     if (resultado=='0'){
         first=resultado
     }
@@ -56,6 +70,12 @@ sub.addEventListener('click', ()=> {
 } )
 
 mul.addEventListener('click', ()=> {
+    if(sign!=''){
+        operator(operation,sign,first,second)
+        resultadoMostrado = true;
+        sign=''
+        punto=false
+    }
     if (resultado=='0'){
         first=resultado
     }
@@ -69,6 +89,12 @@ mul.addEventListener('click', ()=> {
 } )
 
 div.addEventListener('click', ()=> {
+    if(sign!=''){
+        operator(operation,sign,first,second)
+        resultadoMostrado = true;
+        sign=''
+        punto=false
+    }
     if (resultado=='0'){
         first=resultado
     }
@@ -132,7 +158,6 @@ function divide(op1,op2){
 }
 function operator(operation,sign,first,second){
     let posicion = displayText.textContent.indexOf(sign);
-    console.log(posicion)
     second=parseFloat(displayText.textContent.slice(posicion+1,displayText.textContent.length));
     resultado=displayText.textContent=operation(first,second)
 }
