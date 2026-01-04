@@ -2,4 +2,4 @@ Calculator
 
 https://jramirezhdez02.github.io/calculator/
 
-A robust mathematical logic engine and UI built with vanilla JavaScript. Features custom expression evaluation (without eval()), error handling for edge cases (division by zero), and floating-point precision.
+This project is a fully functional digital calculator developed from scratch. It was designed to practice the core principles of JavaScript logic and UI responsiveness. The application handles real-time calculations, manages user input states, and ensures a smooth, bug-free experience for basic daily arithmetic.
